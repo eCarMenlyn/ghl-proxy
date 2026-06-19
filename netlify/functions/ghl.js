@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 const GHL_BASE = 'https://services.leadconnectorhq.com';
 
 exports.handler = async (event) => {
@@ -43,6 +41,10 @@ exports.handler = async (event) => {
     return {
       statusCode: 500,
       headers,
+      body: JSON.stringify({ error: err.message })
+    };
+  }
+};
       body: JSON.stringify({ error: err.message })
     };
   }
